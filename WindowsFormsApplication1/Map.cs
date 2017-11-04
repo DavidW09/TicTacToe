@@ -5,7 +5,7 @@ namespace TicTacToe
     public class Map
     {
         private Point location;
-        private int value;
+        private BoardValue value;
 
         public void SetLocation(Point p)
         {
@@ -15,11 +15,11 @@ namespace TicTacToe
         {
             return location;
         }
-        public void SetValue(int v)
+        public void SetValue(BoardValue v)
         {
             value = v;
         }
-        public int GetValue()
+        public BoardValue GetValue()
         {
             return value;
         }

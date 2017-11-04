@@ -1,65 +1,26 @@
 ﻿using System.Drawing;
-using System.Windows.Forms;
 
 namespace TicTacToe
 {
-    public class Board
+    public enum BoardValue
+    {
+        X = 0,
+        O = 1,
+        C = -1,
+    };
+    
+    public class GameBoard
     {
         private Map[,] coordinates = new Map[3, 3];
-        private int numberOfMoves = 0;
-        private int xWins;
-        private int oWins;
-        private int catWins;
-        private Form1 form;
-        private bool hasWinner;
-        private bool isCat;
 
-        private const int X = 0;
-        private const int O = 1;
-        private const int B = 2;
-
-        public Board(Form1 form)
+        public GameBoard()
         {
             InitializeBoard();
-            this.form = form;
-            xWins = 0;
-            oWins = 0;
-            catWins = 0;
         }
 
-        public void DetectHit(Point point)
+        public void SetValue(int x, int y, BoardValue value)
         {
-            int x = GetXCoordinate(point.X);
-            int y = GetYCoordinate(point.Y);
-            if (y != -1 && !hasWinner && !isCat)
-            {
-
-                if (numberOfMoves % 2 == 0)
-                {
-                    form.DrawX(new Point(x, y));
-                    coordinates[x, y].SetValue(X);
-                    if (IsWinner(X))
-                    {
-                        hasWinner = true;
-                        MessageBox.Show("X has won!");
-                        xWins++;
-                    }
-                }
-                else
-                {
-                    form.DrawO(new Point(x, y));
-                    coordinates[x, y].SetValue(O);
-                    if (IsWinner(O))
-                    {
-                        hasWinner = true;
-                        MessageBox.Show("O has won!");
-                        oWins++;
-                    }
-                }
-                numberOfMoves++;
-                CheckCatsGame();
-            }
-
+            coordinates[x, y].SetValue(value);
         }
 
         public void Reset()
@@ -67,53 +28,9 @@ namespace TicTacToe
             InitializeBoard();
         }
 
-        public string getPlayer()
-        {
-            if (!hasWinner)
-            {
-                if (numberOfMoves % 2 == 0)
-                    return "X";
-                else
-                    return "O";
-            }
-            else
-            {
-                return "";
-            }
-        }
-        public int getXWins()
-        {
-            return xWins;
-        }
-        public int getOWins()
-        {
-            return oWins;
-        }
-        public int getCatWins()
-        {
-            return catWins;
-        }
-
-
-        private void InitializeBoard()
+        public bool IsWinner(BoardValue value)
         {
             for (int x = 0; x < 3; x++)
-            {
-                for (int y = 0; y < 3; y++)
-                {
-                    coordinates[x, y] = new Map();
-                    coordinates[x, y].SetLocation(new Point(x, y));
-                    coordinates[x, y].SetValue(B);
-                }
-            }
-            hasWinner = false;
-            isCat = false;
-            numberOfMoves = 0;
-        }
-
-        private bool IsWinner(int value)
-        {
-            for(int x = 0; x < 3; x++)
             {
                 if (coordinates[x, 0].GetValue() == value && coordinates[x, 1].GetValue() == value && coordinates[x, 2].GetValue() == value)
                     return true;
@@ -130,34 +47,18 @@ namespace TicTacToe
             return false;
         }
 
-        private int GetXCoordinate(int x)
+        private void InitializeBoard()
         {
-            if (x < 167)
-                return 0;
-            else if (x > 167 && x < 334)
-                return 1;
-            else
-                return 2;
-        }
-        private int GetYCoordinate(int y)
-        {
-            if (y < 167)
-                return 0;
-            else if (y > 167 && y < 334)
-                return 1;
-            else if (y > 334 && y < 500)
-                return 2;
-            else
-                return -1;
-        }
-
-        private void CheckCatsGame()
-        {
-            if(!hasWinner && numberOfMoves >= 9)
+            for (int x = 0; x < 3; x++)
             {
-                catWins++;
-                isCat = true;
+                for (int y = 0; y < 3; y++)
+                {
+                    coordinates[x, y] = new Map();
+                    coordinates[x, y].SetLocation(new Point(x, y));
+                    coordinates[x, y].SetValue(BoardValue.C);
+                }
             }
         }
+
     }
 }

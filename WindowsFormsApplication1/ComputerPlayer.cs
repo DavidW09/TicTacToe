@@ -3,5 +3,10 @@
     public class ComputerPlayer
     {
 
+        public void PlaceMove()
+        {
+
+        }
+
     }
 }
