@@ -16,7 +16,6 @@ namespace TicTacToe
             scoreBoard = new ScoreBoard();
             gameController = new GameController(this, gameBoard, scoreBoard);
             form.SetScoreBoard(scoreBoard);
-
         }
    
         public void PlaceMove(Point point)

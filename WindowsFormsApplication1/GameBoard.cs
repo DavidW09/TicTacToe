@@ -11,7 +11,7 @@ namespace TicTacToe
     
     public class GameBoard
     {
-        private Map[,] coordinates = new Map[3, 3];
+        private Tile[,] coordinates = new Tile[3, 3];
 
         public GameBoard()
         {
@@ -47,13 +47,20 @@ namespace TicTacToe
             return false;
         }
 
+        public bool IsValidMove(int x, int y)
+        {
+            if (coordinates[x, y].GetValue() == BoardValue.C)
+                return true;
+            return false;
+        }
+
         private void InitializeBoard()
         {
             for (int x = 0; x < 3; x++)
             {
                 for (int y = 0; y < 3; y++)
                 {
-                    coordinates[x, y] = new Map();
+                    coordinates[x, y] = new Tile();
                     coordinates[x, y].SetLocation(new Point(x, y));
                     coordinates[x, y].SetValue(BoardValue.C);
                 }

@@ -2,7 +2,7 @@
 
 namespace TicTacToe
 {
-    public class Map
+    public class Tile
     {
         private Point location;
         private BoardValue value;
