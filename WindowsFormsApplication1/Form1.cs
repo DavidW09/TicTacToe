@@ -65,12 +65,18 @@ namespace TicTacToe
         {
             Application.Exit();
         }
+
+        private void aiButton_Click(object sender, EventArgs e)
+        {
+            game.toggleAI();
+        }
         
         private void RefreshLabel()
         {
             String info = "It is ";
             info += scoreBoard.GetCurrentPlayer();
             info += "'s turn \n";
+            info += "Ai is currently turned " + scoreBoard.getAiStatus() + " \n";
             info += "X has won " + scoreBoard.GetXWins() + " times.\n";
             info += "O has won " + scoreBoard.GetOWins() + " times.\n";
             info += "Cat has won " + scoreBoard.GetCatWins() + " times.\n";

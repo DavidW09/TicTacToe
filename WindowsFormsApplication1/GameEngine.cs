@@ -41,6 +41,11 @@ namespace TicTacToe
             gameController.Reset();
         }
 
+        public void toggleAI()
+        {
+            gameController.toggleAI();
+        }
+
         private int ConvertPoint(int p)
         {
             if (p < 167)
@@ -50,6 +55,6 @@ namespace TicTacToe
             else
                 return 2;
         }
-
+    
     }
 }

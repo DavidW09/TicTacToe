@@ -30,10 +30,11 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.aiButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.exitButton = new System.Windows.Forms.Button();
             this.aboutButton = new System.Windows.Forms.Button();
             this.newGameButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,6 +51,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Blue;
+            this.panel2.Controls.Add(this.aiButton);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.exitButton);
             this.panel2.Controls.Add(this.aboutButton);
@@ -59,6 +61,26 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(500, 100);
             this.panel2.TabIndex = 1;
+            // 
+            // aiButton
+            // 
+            this.aiButton.Location = new System.Drawing.Point(12, 51);
+            this.aiButton.Name = "aiButton";
+            this.aiButton.Size = new System.Drawing.Size(115, 37);
+            this.aiButton.TabIndex = 3;
+            this.aiButton.Text = "Set AI";
+            this.aiButton.UseVisualStyleBackColor = true;
+            this.aiButton.Click += new System.EventHandler(this.aiButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(133, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "label1";
             // 
             // exitButton
             // 
@@ -84,21 +106,11 @@
             // 
             this.newGameButton.Location = new System.Drawing.Point(12, 7);
             this.newGameButton.Name = "newGameButton";
-            this.newGameButton.Size = new System.Drawing.Size(115, 81);
+            this.newGameButton.Size = new System.Drawing.Size(115, 38);
             this.newGameButton.TabIndex = 0;
             this.newGameButton.Text = "New Game";
             this.newGameButton.UseVisualStyleBackColor = true;
             this.newGameButton.Click += new System.EventHandler(this.newGameButton_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(133, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
             // 
             // Form1
             // 
@@ -125,6 +137,7 @@
         private System.Windows.Forms.Button aboutButton;
         private System.Windows.Forms.Button newGameButton;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button aiButton;
     }
 }
 

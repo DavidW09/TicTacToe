@@ -54,6 +54,11 @@ namespace TicTacToe
             return false;
         }
 
+        public Tile[,] getGameBoard()
+        {
+            return coordinates;
+        }
+
         private void InitializeBoard()
         {
             for (int x = 0; x < 3; x++)

@@ -7,6 +7,7 @@ namespace TicTacToe
         private int xWins;
         private int oWins;
         private int catWins;
+        private bool isAI;
         private string currentPlayer;
 
         public ScoreBoard()
@@ -34,9 +35,26 @@ namespace TicTacToe
             return currentPlayer;
         }
 
+        public string getAiStatus()
+        {
+            if (isAI)
+            {
+                return "On";
+            }
+            else
+            {
+                return "Off";
+            }
+        }
+
         public void SetCurrentPlayer(string player)
         {
             currentPlayer = player;
+        }
+
+        public void updatePlayerInfo(bool isAI)
+        {
+            this.isAI = isAI;   
         }
         public void IncrementCatWins()
         {
